@@ -7,7 +7,23 @@
 </head>
 <body>
     <h1>Experiment 1</h1>
+    <h2>Reminder: Open the console to see the functionality of the code.</h2>>
 
+    <script>
+    //Takes a lowercase string and capitalizes the first letter of each word in the string. //
+
+        var sentence = prompt("Type a sentence?", "");
+        var words = sentence.split(" ");
+
+        for (let i = 0; i < words.length; i++) {
+         words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+
+        console.log(words.join(" "));
+
+
+    </script>
 
 </body>
 </html>
+
