@@ -20,6 +20,21 @@ h3{
     color: #214526;
 }
 
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  #banner {
+    animation: 1s ease-out 0s 1 slideInLeft;
+/*     background: #666; */
+    padding: 40px;
+  }
+
 ul{
     padding-left: 120px;
     padding-right: 120px;
