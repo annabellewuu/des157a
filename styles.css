@@ -1,6 +1,47 @@
 
-img{
+/* img{
     margin: auto;
-    display: block;
+    display: block; 
+} */
+
+h1, h2, h3{
+    text-align: center;
+    font-family: 'Gabarito', sans-serif;
+    font-size: 30px;
+}
+
+li{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+.row {
+    display: flex;
+}
+
+.column { 
+    margin: auto;
+    transition: all .2s ease-in-out; 
+}
     
+    .column:hover { 
+    transform: scale(1.1) rotate(5deg);
+}
+
+.three-columns-grid {
+    text-align: center;
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding:1rem;
+}
+
+li{
+    text-align: left;
 }
