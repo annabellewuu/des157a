@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Selections & Loops</title>
+</head>
+<body>
+    <h1>Experiment 2</h1>
+    <h2>Reminder: Open the console to see the functionality of the code.</h2>>
+
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+
+    <script>
+    function changeBackgroundColor() {
+        // Define a list of colors to choose from
+        const colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink"];
+    
+        // Prompt the user to select their favorite color
+        const userColor = prompt("Please enter your favorite color from the list: " + colors.join(', '));
+    
+        // Check if the user's input is in the list of colors
+        if (colors.includes(userColor)) {
+            // Change the background color
+            document.body.style.backgroundColor = userColor;
+        } else {
+            alert("Sorry, that color is not in the list. Please choose from: " + colors.join(', '));
+        }
+    }
+    </script>
+
+    <!-- This code ask users to input their favorite color from a list of colors. Then change the background color of the page to that color. -->
+
+</body>
+</html>
