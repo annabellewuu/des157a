@@ -1,0 +1,42 @@
+
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+img{
+    animation: 1s ease-out 0s 1 slideInLeft;
+    padding: 30px;
+}
+
+
+h1{
+    text-align: center;
+    font-family: 'Gabarito', sans-serif;
+    font-size: 40px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+header{
+    display: flex;
+}
+
+body{
+    background-color: #FFF8D6;
+    padding:30px;
+}
+
+#content{
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    padding: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: aliceblue;
+}
+
