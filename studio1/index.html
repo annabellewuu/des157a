@@ -6,19 +6,46 @@
     <title>Mad Libs</title>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js" defer></script>
     
 </head>
 <body>
     <header>
         <h1>Mad Libs Game</h1>
+        <img src="images/miffy.png" width="200" height="200" alt="smiski think">
     </header>
+    <main>
+        
+        <form id="myform">
+            <p><label for = "adj1">Please give me an adjective:</label>
+            <input type = "text" id = "adj1"></p>
 
-    <p>Enter an adjective: <input type="text" id="adjective"></p>
-    <p>Enter a verb: <input type="text" id="verb"></p>
-    <p>Enter an adjective: <input type="text" id="adjective"></p>
-    <button id="generate">Generate Story</button>
-    <p id="story"></p>
-    <script src="script.js"></script>
+            <p><label for = "name1">Please give me a name:</label>
+            <input type = "text" id="name1"></p>
+
+            <p></p><label for = "color">Please give me a color:</label>
+            <input type = "text" id="color"></p>
+
+            <p></p><label for = "noun1">Please give me a noun:</label>
+            <input type = "text" id="noun1"></p>
+
+            <p></p><label for = "object">Please give me an object:</label>
+            <input type = "text" id="object"></p>
+
+            <p></p><label for = "bodypart">Please give me a body part:</label>
+            <input type = "text" id="bodypart"></p>
+
+            <p></p><label for = "adj2">Please give me an adjective:</label>
+            <input type = "text" id="adj2"></p>
+
+            <p></p><label for = "sound">Please give me a sound:</label>
+            <input type = "text" id="sound"></p>
+
+            <input type="submit" value="Send">
+        </form>
+        <article id="madlib"></article>
+
+    </main>
     
 </body>
 </html>
