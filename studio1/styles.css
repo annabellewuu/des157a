@@ -1,30 +1,86 @@
+
 body {
-    text-align: center;
-    background-color: lightpink;
-    font-family: Arial, sans-serif;
+    font-family: 'Josefin Slab', serif;
+    background-image: url('images/background.gif');
+    background-size: cover;
     margin: 0;
-    padding: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-h1 {
-    color: #333;
-    margin-top: 20px;
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
 }
 
-input {
-    width: 200px;
+header {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    padding: 20px;
+    width: 80%;
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+.miffy{
+    padding: 20px;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px;
     padding: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    position: relative; 
 }
 
-button {
-    background-color: #333;
-    color: #fff;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style form elements */
+form p {
+    margin: 10px 0;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007bff; /* Blue color for the button */
+    color: white;
     border: none;
+    border-radius: 5px;
     padding: 10px 20px;
-    margin-top: 10px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #555;
+input[type="submit"]:hover {
+    background-color: #0056b3; 
 }
+
+article#madlib {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 10px;
+}
+
+

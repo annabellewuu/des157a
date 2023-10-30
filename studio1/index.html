@@ -6,15 +6,20 @@
     <title>Mad Libs</title>
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Josefin+Slab:wght@500&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     
 </head>
 <body>
     <header>
-        <h1>Mad Libs Game</h1>
-        <img src="images/miffy.png" width="200" height="200" alt="smiski think">
+        <!-- <img class="miffy" src="images/miffy.png" width="200" height="200" alt="miffy"> -->
+        <!-- <h1>Dreamy Mad Libs</h1> -->
     </header>
     <main>
+        <h1>Dreamy Mad Libs</h1>
+        <img class="miffy" src="images/miffy.png" width="200" height="200" alt="miffy">
         
         <form id="myform">
             <p><label for = "adj1">Please give me an adjective:</label>
@@ -23,24 +28,25 @@
             <p><label for = "name1">Please give me a name:</label>
             <input type = "text" id="name1"></p>
 
-            <p></p><label for = "color">Please give me a color:</label>
+            <p><label for = "color">Please give me a color:</label>
             <input type = "text" id="color"></p>
 
-            <p></p><label for = "noun1">Please give me a noun:</label>
+            <p><label for = "noun1">Please give me a noun:</label>
             <input type = "text" id="noun1"></p>
 
-            <p></p><label for = "object">Please give me an object:</label>
+            <p><label for = "object">Please give me an object:</label>
             <input type = "text" id="object"></p>
 
-            <p></p><label for = "bodypart">Please give me a body part:</label>
+            <p><label for = "bodypart">Please give me a body part:</label>
             <input type = "text" id="bodypart"></p>
 
-            <p></p><label for = "adj2">Please give me an adjective:</label>
+            <p><label for = "adj2">Please give me an adjective:</label>
             <input type = "text" id="adj2"></p>
 
-            <p></p><label for = "sound">Please give me a sound:</label>
+            <p><label for = "sound">Please give me a sound:</label>
             <input type = "text" id="sound"></p>
-
+            
+            
             <input type="submit" value="Send">
         </form>
         <article id="madlib"></article>

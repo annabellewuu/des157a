@@ -3,53 +3,50 @@
     'use strict';
     console.log('reading js');
 
-    const myForm = document.querySelector('#myform');
-    const madLib = document.querySelector("#madlib");
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("myform");
+        const madlib = document.getElementById("madlib");
 
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-    myForm.addEventListener('submit', function(event){
+            const adj1 = document.getElementById("adj1").value;
+            const name1 = document.getElementById("name1").value;
+            const color = document.getElementById("color").value;
+            const noun1 = document.getElementById("noun1").value;
+            const object = document.getElementById("object").value;
+            const bodypart = document.getElementById("bodypart").value;
+            const adj2 = document.getElementById("adj2").value;
+            const sound = document.getElementById("sound").value;
+
+            if (!adj1 || !name1 || !color || !noun1 || !object || !bodypart || !adj2 || !sound) {
+                madlib.textContent = "Please fill in all fields before creating the story.";
+            } else {
+                const madlibText = `One ${adj1} evening, a little bunny named ${name1} decided it was time to go to sleep. 
+                It hopped into its cozy ${color} ${noun1}, snuggled up with its favorite ${object}, and closed its ${bodypart} with a contented smile on its face. 
+                The stars outside were ${adj2}, and the night was filled with the soothing sound of ${sound}. 
+                ${name1} had the sweetest dreams as they drifted off to sleep.`;
+                madlib.textContent = madlibText;
+            }
+        });
+    });
+
+    document.querySelector('.open').addEventListener('click', function(event){
         event.preventDefault();
-        const adj1 = document.querySelector('#adj1').value;
-        const name1 = document.querySelector('#name1').value;
-        const color = document.querySelector('#color').value;
-        const noun1 = document.querySelector('#noun1').value;
-        const object = document.querySelector('#object').value;
-        const bodypart = document.querySelector('#bodypart').value;
-        const adj2 = document.querySelector('#adj2').value;
-        const sound = document.querySelector('#sound').value;
+        document.getElementById('overlay').className = 'hidden';
 
+    });
 
-        /* const myText = `<p>You typed the words: ${noun1}, ${noun2}, ${adj}, ${verb}</p>`; */
+    document.querySelector('.close').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById('overlay').className = 'showing';
 
-        let myText = '';
+    });
 
-        if(adj1 == ''){
-            myText = "Please give me an adjective:"
-            document.querySelector('#adj1').focus();
-        } 
-        else if(name1 == ''){
-            myText = "Please give me a name!"
-            document.querySelector('#name1').focus();
+    document.addEventListener('keydown', function (event){
+        if (event.key == "Escape"){
+            document.getElementById('overlay').className = 'hidden';
         }
-        else if(adj == ''){
-            myText = "Please provide an adjective!"
-            document.querySelector('#adj').focus();
-        
-        else if(verb == ''){
-            myText = "Please provide a verb!"
-            document.querySelector('#verb1').focus();
-        }
-        else{
-            myText = `<p>You typed the words: ${noun1}, ${noun2}, ${adj}, ${verb}</p>`;
-            document.querySelector('#noun1').value = '';
-            document.querySelector('#noun2').value = '';
-            document.querySelector('#adj').value = '';
-            document.querySelector('#verb1').value = '';
-        }
-
-        madLib.innerHTML = myText;
-    
-        
     });
 
 })();
@@ -58,12 +55,3 @@
 
 
 
-/* document.getElementById('generate').addEventListener('click', function () {
-    const noun = document.getElementById('noun').value;
-    const verb = document.getElementById('verb').value;
-    const adjective = document.getElementById('adjective').value;
-    
-    const story = `Once upon a time, there was a ${adjective} ${noun}. It loved to ${verb} all day long. The end.`;
-
-    document.getElementById('story').textContent = story;
-}); */
