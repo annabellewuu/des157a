@@ -2,7 +2,7 @@ body {
     font-family: 'Josefin Slab', serif;
     background-image: url('images/background.gif');
     background-size: cover;
-    margin: 0;
+    margin: 20px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -16,14 +16,14 @@ h1 {
     font-size: 50px;
 }
 
-header {
+/* header {
     font-family: 'Dancing Script', cursive;
     text-align: center;
     padding: 20px;
     width: 80%;
     margin-bottom: 20px;
     position: relative;
-}
+} */
 
 .miffy {
     padding: 20px;
@@ -39,6 +39,7 @@ main {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     width: 60%;
     position: relative;
+    margin: 20px;
 }
 
 form {
