@@ -2,7 +2,7 @@ body {
     font-family: 'Josefin Slab', serif;
     background-image: url('images/background.gif');
     background-size: cover;
-    margin: 20px;
+    margin: 30px;
     padding: 10px;
     display: flex;
     flex-direction: column;
