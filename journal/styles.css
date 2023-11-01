@@ -7,9 +7,24 @@
   }
 }
 
-img {
+header img {
 animation: slideInFromTop 1s ease-in;
 padding-top: 20px;
+}
+
+figure img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+em{
+  text-align: center;
+  color: 	#696969;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  padding-top: 50px;
 }
 
 @keyframes slideInFromTop {
@@ -59,5 +74,17 @@ article{
   vertical-align: middle;
 }
 
+#bread{
+  display: flex;
+  padding: 10px;
+}
 
+#concert{
+  display: flex;
+
+}
+
+#concert p {
+  padding: 20px;
+}
 
