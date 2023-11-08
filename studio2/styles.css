@@ -43,7 +43,7 @@ body {
     border-width: 1vmin 1vmin 10vmin 1vmin;
     height: 70vmin;
     overflow: hidden;
-    width: 70vmin;
+    width: 100%;
     
     img {
       height: 100%;
