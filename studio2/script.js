@@ -11,9 +11,9 @@
   window.addEventListener('scroll', function () {
       const scrollY = window.scrollY * 1.2;
       const offsetBoba = Math.min(scrollY * 1.2, 600); 
-      const offsetChicken = Math.min(-scrollY * 1.2);
+      const offsetChicken = Math.min(-scrollY * 1.2 / 1.2);
       const offsetMango = Math.min(scrollY * 1.2, 1000);
-      const offsetBear = Math.min(-scrollY * 0.5, 500);
+      const offsetBear = Math.min(-scrollY * 0.5 / 1.2);
       const offsetDrink = Math.min(scrollY * 0.5, 1000);
 
       if (!bobaScrolled) {

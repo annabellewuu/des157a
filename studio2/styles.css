@@ -20,17 +20,18 @@ p{
 body {
   height: 2000px; 
   margin: 0;
+  background-color: lightblue;
 }
 
 
 .boba-group {
   position: absolute;
   top:300px;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 .boba {
   position: absolute;
-  padding-left: 30px;
+  padding-left: 50px;
   left: -0px;
   transition: transform 0.3s ease-out;
 }
@@ -38,19 +39,19 @@ body {
 .chicken-group {
   position: absolute;
   top:800px;
-  left:1080px;
+  left:1030px;
   /* float: right; */
 }
 .chicken {
   position: absolute;
-  right: -0px;
+  right: 25px;
   transition: transform 0.3s ease-in-out;
 }
 
 .mango-group{
   position: absolute;
   top:1400px;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 .mango{
   position: absolute;
@@ -61,7 +62,7 @@ body {
 .bear-group {
   position: absolute;
   top:1900px;
-  left:1080px;
+  left:1050px;
   /* float: right; */
 }
 .bear {
@@ -73,7 +74,7 @@ body {
 .drink-group{
   position: absolute;
   top:2400px;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 .drink{
   position: absolute;
@@ -83,13 +84,11 @@ body {
 
 
 
-
-
 /* text styling */
 .textBoba {
   position: relative;
   float: right;
-  transform: translateX(180%) translateY(400%);
+  transform: translateX(120%) translateY(400%);
   text-align: center;
   font-size: 24px;
   opacity: 0;
@@ -97,7 +96,22 @@ body {
 } 
 
 .textChicken{
-  transform: translateX(-230%) translateY(-1000%);
+  position: relative;
+  transform: translateX(-230%) translateY(-800%);
   font-size: 24px;
+  transition: opacity 0.3s ease-in-out;
 }
 
+.textMango{
+  position: relative;
+  transform: translateX(200%) translateY(-400%);
+  font-size: 24px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.textDrink{
+  position: relative;
+  transform: translateX(240%) translateY(-250%);
+  font-size: 24px;
+  transition: opacity 0.3s ease-in-out;
+}
