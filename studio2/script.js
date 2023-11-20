@@ -2,6 +2,8 @@
   'use strict';
   console.log('reading js');
 
+  //image scrolling
+
   let bobaScrolled = false;
   let chickenScrolled = false;
   let mangoScrolled = false;
