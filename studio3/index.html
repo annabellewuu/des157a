@@ -12,17 +12,17 @@
 
     </head>
     <body>
-        <button id="spin">Spin</button>
-        <span class="arrow">
-            <img src="images/arrow.png" alt="arrow">
-        </span>
-            <div class="container">
-                    <div class="one">1</div>
-                    <div class="two">2</div>
-                    <div class="three">3</div>
-                    <div class="four">4</div>
-                    <div class="five">5</div>
-                    <div class="six">6</div>
-            </div>
+        <h1>Game of PIG</h1>
+        <p>There are two players. The player whose turn it is rolls the dice. The total of the roll is added to the current player's score, unless either die comes up as a "one". If this happens, this player's turn is over, and it is the other player’s turn. After each roll, the current player can either roll again, (assuming a "one" was not rolled) or if the current player feels that luck is running thin, they can pass to the other player. The first player to get 30 points or higher wins.</p> 
+        <p>Oh, and if you roll two "ones" (snake eyes), your current score gets zeroed out. So don’t do that.</p>
+    
+        <div id="gamecontrol">
+            <h2>Start a Game</h2>
+            <button id="startgame">Randomly Pick the First Player, and Start the Game</button>
+        </div>
+    
+        <div id="game"></div>
+        <div id="actions"></div>
+        <div id="score"></div>
     </body>
     </html>
