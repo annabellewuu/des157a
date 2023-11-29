@@ -4,9 +4,9 @@ body {
     padding: 25px;
     line-height: 1.5em;
     text-align: center;
-    background-image: url("images/cover.png");
-    
+    background-image: url("images/cover.png"); 
 }
+
 h1{
     font-family: 'Black Han Sans', sans-serif;
     font-size: 50px;
@@ -98,6 +98,17 @@ a:link {
     color: #FC0FC0;
   }
 
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    gap: 20px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
 
 
 /* overlay styling */
@@ -125,7 +136,7 @@ a:link {
 }
 
 #overlay article{
-    border-radius: border-box;
+    border-radius: 2px;
     background-color: #FFEFFB;
     padding: 20px;
     width: 50vw;
