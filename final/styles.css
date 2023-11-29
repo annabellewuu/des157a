@@ -84,3 +84,10 @@
     vertical-align: middle;
     line-height: 30px;
   }
+
+  div{
+    padding: 0px 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
