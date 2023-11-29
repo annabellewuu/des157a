@@ -1,25 +1,144 @@
 body {
-    font-family: Arial;
+    font-family: 'Gantari', sans-serif;
     color: #333;
     padding: 25px;
     line-height: 1.5em;
+    text-align: center;
+    background-image: url("images/cover.png");
+    
+}
+h1{
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 50px;
+    color: #333;
 }
 
-button { 
-    padding: 10px;
+#directions {
+    /* Styles for the overall container */
+    padding: 0px 50px 8px;
+    border-radius: 5px;
+    text-align: left; /* Align text to the left */
 }
 
-div {
+header {
+    background-color: #FFEFFB;
+    color: black;
     padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#gamecontrol, #score {
-    background-color: aliceblue;
+
+button {
+    padding: 10px 40px ;
+    background-color: #ed81a1;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-#game {
-    background-color:#eaeaea;
+button:hover {
+    background-color: #e43e6f;
 }
-#actions {
-    background-color: silver;
+
+#gamecontrol {
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Gantari', sans-serif;
+    font-size: 18px;
+}
+
+.red-button {
+    border-width: 2.5px;        
+    border-style: solid;     
+    border-color: #333;
+    background-color: #FFEFFB;
+    color: #333;
+}
+
+.red-button:hover {
+    background-color: #ffb6c1;
+}
+
+.dice-container img {
+    width: 80px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 5px;
+}
+
+#game, #score {
+    background-color: #E6AAAA;
+    padding: 20px;
+    border-radius: 20px;
+    width: 30%;
+    line-height: 40px;
+}
+
+#actions button {
+    margin-right: 10px;
+}
+
+#score p {
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 50px;
+}
+
+a:link {
+    color: #FC0FC0;
+  }
+
+
+
+/* overlay styling */
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.showing {
+    visibility: visible;
+    opacity: 1;
+}
+
+#overlay{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transition-property: opacity, visibility;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+#overlay article{
+    border-radius: border-box;
+    background-color: #FFEFFB;
+    padding: 20px;
+    width: 50vw;
+    height: 80vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    font-family: 'Gantari', sans-serif;
+    color: #333;
+}
+
+#overlay h1 h3{
+    color: #d11d53;
 }

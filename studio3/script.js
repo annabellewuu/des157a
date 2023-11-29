@@ -1,141 +1,163 @@
-
 (function(){
-  'use strict'
-  console.log('reading JS');
+    'use strict'; // Enable strict mode for better error handling
+    console.log('reading JS'); // Log a message to the console
 
-  const startGame = document.querySelector('#startgame');
-  const gameControl = document.querySelector('#gamecontrol');
-  const game = document.querySelector('#game');
-  const score = document.querySelector('#score');
-  const actionArea = document.querySelector('#actions');
+    // Get references to HTML elements
+    const startGame = document.querySelector('#startgame');
+    const gameControl = document.querySelector('#gamecontrol');
+    const game = document.querySelector('#game');
+    const score = document.querySelector('#score');
+    const actionArea = document.querySelector('#actions');
 
-  const gameData = {
-      dice: ['images/1die.jpg', 'images/2die.jpg', 'images/3die.jpg', 'images/4die.jpg', 'images/5die.jpg', 'images/6die.jpg'],
-      players: ['player 1', 'player 2'],
-      score: [0, 0],
-      roll1: 0,
-      roll2: 0,
-      rollSum: 0,
-      index: 0,
-      gameEnd: 29
-  };
+    // Game data object to store various game-related information
+    const gameData = {
+        dice: ['images/1.png', 'images/2.png', 'images/3.png', 'images/4.png', 'images/5.png', 'images/6.png'],
+        players: ['player 1', 'player 2'],
+        score: [0, 0],
+        roll1: 0,
+        roll2: 0,
+        rollSum: 0,
+        index: 0,
+        gameEnd: 29
+    };
 
-  /* 
-  //This gets the current player: 
-  gameData.players[gameData.index]
+    // Function to initialize the game by clearing HTML elements
+    function initializeGame() {
+        game.innerHTML = '';
+        score.innerHTML = '';
+        actionArea.innerHTML = '';
+    }
 
-  //This gets the first die and the second die: 
-  gameData.dice[gameData.roll1-1]
-  gameData.dice[gameData.roll2-1]
+    // Event listener for the "Start Game" button
+    startGame.addEventListener('click', function() {
+        // Randomly select the starting player
+        gameData.index = Math.round(Math.random());
+        console.log(gameData.index);
 
-  //This gets the score of the current player: 
-  gameData.score[gameData.index]
+        // Initialize the game by clearing HTML elements
+        initializeGame();
 
-  //This gets the index, or turn
-  gameData.index
+        // Display game control elements
+        gameControl.innerHTML = '<h2></h2>';
+        gameControl.innerHTML += '<button id="quit" class="red-button">Wanna Quit?</button>';
 
-  //This gets the individual dice values and the added dice value
-  gameData.roll1
-  gameData.roll2
-  gameData.rollSum
+        // Event listener for the "Quit" button to reload the page
+        document.getElementById('quit').addEventListener('click', function() {
+            location.reload();
+        });
 
-  //This gets the winning threshold
-  gameData.rollSum 
-  */
+        // Set up the initial turn
+        setUpTurn();
+    });
 
-  startGame.addEventListener('click', function(){
-      //randomly set game index here...
+    // Function to set up a player's turn
+    function setUpTurn() {
+        game.innerHTML = `<p>Roll the dice for ${gameData.players[gameData.index]}</p>`;
+        actionArea.innerHTML = '<button id="roll">Roll the Dice</button>';
 
-      gameData.index = Math.round(Math.random());
-      console.log(gameData.index);
+        // Event listener for the "Roll" button
+        document.getElementById('roll').addEventListener('click', function() {
+            throwDice();
+            playDiceRollSound();
+        });
+    }
 
+    // Function to simulate rolling the dice
+    function throwDice() {
+        actionArea.innerHTML = '';
+        //test snake eyes
+        /* gameData.roll1 = 1;
+        gameData.roll2 = 1; */
+        gameData.roll1 = Math.floor(Math.random() * 6) + 1;
+        gameData.roll2 = Math.floor(Math.random() * 6) + 1;
+        game.innerHTML = `<p>Roll the dice for ${gameData.players[gameData.index]}</p>`;
+        game.innerHTML += `<img src="${gameData.dice[gameData.roll1-1]}" class="dice-image">
+                            <img src="${gameData.dice[gameData.roll2-1]}" class="dice-image">`;
+        gameData.rollSum = gameData.roll1 + gameData.roll2;
 
-      gameControl.innerHTML = '<h2>The Game Has Started</h2>';
-      gameControl.innerHTML += '<button id = "quit">Wanna Quit?</button>';
+        if( gameData.rollSum === 2 ){
+            // Handle the case of rolling snake eyes
+            game.innerHTML += '<p>Oh snap! Snake eyes!</p>'
+            gameData.score[gameData.index] = 0;
+            gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+            // Show the current score and set up the next turn after a delay
+            showCurrentScore();
+            setTimeout(setUpTurn, 2000);
+        } else if (gameData.roll1 === 1 || gameData.roll2 === 1) {
+            // Handle the case of rolling a one on either die
+            gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+            game.innerHTML += `<p>Sorry, one of your rolls was a one, switching to ${gameData.players[gameData.index]}</p>`;
+            // Set up the next turn after a delay
+            setTimeout(setUpTurn, 2000);
+        } else {
+            // Update the player's score and provide options to roll again or pass
+            gameData.score[gameData.index] = gameData.score[gameData.index] + gameData.rollSum;
+            actionArea.innerHTML = '<button id="rollagain">Roll Again</button> or <button id="pass">Pass</button>';
 
-      document.getElementById('quit').addEventListener("click", function(){
-          location.reload();
-      });
-      //console.log("setUpTurn");
-      setUpTurn();
-  });
-      
+            // Event listeners for the "Roll Again" and "Pass" buttons
+            document.getElementById('rollagain').addEventListener('click', function() {
+                setUpTurn();
+            });
 
-  function setUpTurn(){
-      game.innerHTML = `<p>Roll the dice for the ${gameData.players[gameData.index]}</p>`;
-      actionArea.innerHTML = '<button id = "roll">Roll the Dice</button>';
-      document.getElementById('roll').addEventListener('click', function(){
-          ///console.log("roll the dice!");
-          throwDice();
-      });
+            document.getElementById('pass').addEventListener('click', function() {
+                gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+                setUpTurn();
+            });
 
-  };
+            // Check for winning conditions
+            checkWinningCondition();
+        }
+    }
 
-  function throwDice(){
-      actionArea.innerHTML = '';
-      gameData.roll1 = Math.floor(Math.random() * 6)+1;
-      gameData.roll2 = Math.floor(Math.random() * 6)+1;
-      game.innerHTML = `<p>Roll the dice for the ${gameData.players[gameData.index]}</p>`;
-      game.innerHTML += `<img src = "${gameData.dice[gameData.roll1-1]}">
-                          <img src = "${gameData.dice[gameData.roll2-1]}">`;
-      gameData.rollSum = gameData.roll1 + gameData.roll2;
-      //console.log(gameData.rollSum);
+    // Function to check for winning conditions
+    function checkWinningCondition() {
+        if (gameData.score[gameData.index] > gameData.gameEnd) {
+            // Display the winner and update game control elements
+            score.innerHTML = `<h2>${gameData.players[gameData.index]} is the <br> WINNER! <br> with ${gameData.score[gameData.index]} points!</h2>`;
+            playWinSound();
+            actionArea.innerHTML = '';
+            document.getElementById('quit').classList.add('red-button');
+            document.getElementById('quit').innerHTML = "Start a New Game?";
+        } else {
+            // Display the current score if the game is not over
+            showCurrentScore();
+        }
+    }
 
-      //if two 1's are rolled...
-      if( gameData.rollSum === 2 ){
-          //console.log("snake eyes!");
-          game.innerHTML += '<p>Oh snap! Snake eyes!</p>'
-          gameData.score[gameData.index] = 0;
-          gameData.index ? (gameData.index = 0) : (gameData.index = 1);
-          //show the current score
-          showCurrentScore();
-          setTimeout(setUpTurn, 2000);
+    // Function to play a winning sound
+    function playWinSound() {
+        const winSound = document.getElementById('winSound');
+        winSound.play();
+    }
 
-      //if either die is a 1...
-      } else if (gameData.roll1 === 1 || gameData.roll2 === 1){
-          //console.log("a one was rolled!");
-          gameData.index ? (gameData.index = 0) : (gameData.index = 1);
-          game.innerHTML += `<p>Sorry, one of your rolls was a one, switching to ${gameData.players[gameData.index]}</p>`;
-          setTimeout(setUpTurn, 2000);
+    // Function to play a dice roll sound
+    function playDiceRollSound() {
+        const diceRollSound = document.getElementById('diceRollSound');
+        diceRollSound.play();
+    }
 
-      //if neither die is a 1...
-      } else {
-          //console.log("the game continues");
-          gameData.score[gameData.index] = gameData.score[gameData.index] + gameData.rollSum;
-          actionArea.innerHTML = '<button id ="rollagain">Roll Again</button> or <button id ="pass">Pass</button>'
+    // Function to display the current score
+    function showCurrentScore() {
+        score.innerHTML = `<p>${gameData.players[0]}'s score: <strong>${gameData.score[0]}</strong> <br> 
+                            ${gameData.players[1]}'s score: <strong>${gameData.score[1]}</strong></p>`;
+    }
 
-          document.getElementById('rollagain').addEventListener('click', function(){
-              setUpTurn();
-          });
+    // Event listener for the "Open" button to show the overlay
+    document.querySelector('.open').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById('overlay').className = 'showing';
+    });
 
-          document.getElementById('pass').addEventListener('click', function(){
-              gameData.index ? (gameData.index = 0) : (gameData.index = 1);
-              setUpTurn();
-          });
+    // Event listener for the "Close" button to hide the overlay
+    document.querySelector('.close').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById('overlay').className = 'hidden';
+    });
 
-          //check winning condition
-          checkWinningCondition();
-      }
-
-  };
-
-  function checkWinningCondition(){
-      if(gameData.score[gameData.index] > gameData.gameEnd){
-          score.innerHTML = `<h2>${gameData.players[gameData.index]} wins the game with ${gameData.score[gameData.index]} points</h2>`;
-
-          actionArea.innerHTML = '';
-          document.getElementById('quit').innerHTML = "Start a New Game?";
-
-      }else{
-          //show current score...
-          score.innerHTML = `<p>The score for ${gameData.players[0]} is currently <strong>${gameData.score[0]}</strong> and 
-                              the score for ${gameData.players[1]} is currently <strong>${gameData.score[1]}</strong></p>`;
-      }
-  };
-
-  function showCurrentScore(){
-      score.innerHTML = `<p>The score for ${gameData.players[0]} is currently <strong>${gameData.score[0]}</strong> and 
-                              the score for ${gameData.players[1]} is currently <strong>${gameData.score[1]}</strong></p>`;
-  };
-
+    // Event listener for the "Escape" key to hide the overlay
+    document.addEventListener('keydown', function (event){
+        if (event.key == "Escape"){
+            document.getElementById('overlay').className = 'hidden';
+        }
+    });
 })();
