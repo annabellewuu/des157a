@@ -133,7 +133,7 @@
     // Function to play a dice roll sound
     function playDiceRollSound() {
         const diceRollSound = document.getElementById('diceRollSound');
-        diceRollSound.play();
+        diceRollSound.play(); 
     }
 
     // Function to display the current score

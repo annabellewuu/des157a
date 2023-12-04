@@ -32,7 +32,7 @@ h3{
   #banner {
     animation: 1s ease-out 0s 1 slideInLeft;
 /*     background: #666; */
-    padding: 40px;
+    padding: 0px 40px;
   }
 
 ul{
