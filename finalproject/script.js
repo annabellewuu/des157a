@@ -3,7 +3,7 @@
     console.log('reading js');
 
     
-    const startMenuClickElement = document.getElementById("startMenuClick");
+    const startMenuClickElement = document.getElementById("startButton");
     startMenuClickElement.addEventListener("click", function () {
         console.log("Clicked on Start Menu!");
         resetForm(); 
@@ -22,7 +22,7 @@
     });
 
 
-    const storyClickElement = document.getElementById("storyClick");
+    const storyClickElement = document.getElementById("storyButton");
     storyClickElement.addEventListener("click", function () {
         console.log("Clicked on Story!");
         navigateTo("startMenu");
@@ -72,11 +72,18 @@
         } else {
             // Hide the overlay and generate the madlib
             overlay.style.display = 'none';
-            const madlibText = `One ${adj1} evening, a little bunny named ${name1} decided it was time to go to sleep. 
+            /* const madlibText = `One ${adj1} evening, a little bunny named ${name1} decided it was time to go to sleep. 
             It hopped into its cozy ${color} ${noun1}, snuggled up with its favorite ${object}, and closed its ${bodypart} with a contented smile on its face. 
             The stars outside were ${adj2}, and the night was filled with the soothing sound of ${sound}. 
-            ${name1} had the sweetest dreams as they drifted off to sleep.`;
+            ${name1} had the sweetest dreams as they drifted off to sleep.`; */
+
+            const madlibText = `One <span class="user-word">${adj1}</span> evening, a little bunny named <span class="user-word">${name1}</span> decided it was time to go to sleep. 
+            It hopped into its cozy <span class="user-word">${color}</span> <span class="user-word">${noun1}</span>, snuggled up with its favorite <span class="user-word">${object}</span>, and closed its <span class="user-word">${bodypart}</span> with a contented smile on its face. 
+            The stars outside were <span class="user-word">${adj2}</span>, and the night was filled with the soothing sound of <span class="user-word">${sound}</span>. 
+            <span class="user-word">${name1}</span> had the sweetest dreams as they drifted off to sleep.`;
+
             madlib.textContent = madlibText;
+            madlib.innerHTML = madlibText;
 
             // Once the madlib is generated, navigate to the story section
             playSparkle();
