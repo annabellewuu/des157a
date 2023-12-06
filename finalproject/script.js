@@ -2,44 +2,47 @@
     'use strict';
     console.log('reading js');
 
-    
+    // Get the element with the ID "startButton" and add a click event listener
     const startMenuClickElement = document.getElementById("startButton");
     startMenuClickElement.addEventListener("click", function () {
         console.log("Clicked on Start Menu!");
         resetForm(); 
-        navigateTo("form");
+        // Move to the "form" section
+        navigateTo("form"); 
     });
 
-        // Example: Add a click event listener to the "formButton" element
+    // Get the element with the ID "formButton" and add a click event listener
     const formButton = document.getElementById("formButton");
     formButton.addEventListener("click", function (event) {
         // Prevent the default form submission behavior
         event.preventDefault();
 
-        // Add your logic for handling the click event
         console.log("Clicked on Form!");
+        // Handle the click event for the "formButton"
         generateMadlib();
     });
 
-
+    // Get the element with the ID "storyButton" and add a click event listener
     const storyClickElement = document.getElementById("storyButton");
     storyClickElement.addEventListener("click", function () {
         console.log("Clicked on Story!");
+        // Move to the "startMenu" section
         navigateTo("startMenu");
     });
 
     
+    // Get the element with the ID "exitButton" and add a click event listener
     const exitButton = document.getElementById("exitButton");
     exitButton.addEventListener("click", function () {
         // Hide the overlay
         const overlay = document.getElementById("overlay");
         overlay.style.display = 'none';
-
-        // If the exit button is pressed, navigate back to the form
+        // Move to the "form" section
         navigateTo("form");
     });
 
-    // Example: Add logic for moving between sections
+
+    // Function to navigate between sections
     function navigateTo(sectionId) {
         // Hide all sections
         const sections = document.querySelectorAll('section');
@@ -54,7 +57,9 @@
         }
     }
 
+    // Function to generate the madlib
     function generateMadlib() {
+        // Get input values
         const adj1 = document.getElementById("adj1").value;
         const name1 = document.getElementById("name1").value;
         const color = document.getElementById("color").value;
@@ -63,19 +68,17 @@
         const bodypart = document.getElementById("bodypart").value;
         const adj2 = document.getElementById("adj2").value;
         const sound = document.getElementById("sound").value;
+        // Get elements
         const madlib = document.getElementById("madlib");
         const overlay = document.getElementById("overlay");
 
+        // Check if all form fields are filled
         if (!adj1 || !name1 || !color || !noun1 || !object || !bodypart || !adj2 || !sound) {
             // Show the overlay if the form is not filled out
             overlay.style.display = 'block';
         } else {
             // Hide the overlay and generate the madlib
             overlay.style.display = 'none';
-            /* const madlibText = `One ${adj1} evening, a little bunny named ${name1} decided it was time to go to sleep. 
-            It hopped into its cozy ${color} ${noun1}, snuggled up with its favorite ${object}, and closed its ${bodypart} with a contented smile on its face. 
-            The stars outside were ${adj2}, and the night was filled with the soothing sound of ${sound}. 
-            ${name1} had the sweetest dreams as they drifted off to sleep.`; */
 
             const madlibText = `One <span class="user-word">${adj1}</span> evening, a little bunny named <span class="user-word">${name1}</span> decided it was time to go to sleep. 
             It hopped into its cozy <span class="user-word">${color}</span> <span class="user-word">${noun1}</span>, snuggled up with its favorite <span class="user-word">${object}</span>, and closed its <span class="user-word">${bodypart}</span> with a contented smile on its face. 
@@ -83,6 +86,7 @@
             <span class="user-word">${name1}</span> had the sweetest dreams as they drifted off to sleep.`;
 
             madlib.textContent = madlibText;
+            // Set the innerHTML to include the generated madlib text
             madlib.innerHTML = madlibText;
 
             // Once the madlib is generated, navigate to the story section
@@ -91,11 +95,13 @@
         }
     }
 
+    // Function to reset the form fields
     function resetForm() {
         // Reset the form fields
         document.getElementById("myform").reset();
     }
-        
+
+    // Function to play a sound effect
     function playSparkle() {
         const sparkleSound = document.getElementById('sparkle');
         sparkleSound.play(); 
