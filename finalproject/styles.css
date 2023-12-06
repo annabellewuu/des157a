@@ -44,7 +44,7 @@ h4{
 #main{
     background-color: #ECF8FF; 
     padding: 100px 50px; 
-    border-radius: 30px; /* Border radius to round the corners */
+    border-radius: 30px; 
     color: #000;
     margin: 100px;
 
@@ -68,7 +68,7 @@ h4{
 
 #ears{
     position:fixed;
-    left: 550px;
+    left: 580px;
     bottom:-5px;
 }
 
@@ -83,15 +83,40 @@ h4{
     justify-content: center;
 }
 
+#sections-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.section {
+    width: 48%; /* Adjust as needed */
+}
+
+
+#myform{
+    background-color: #ECF8FF; 
+    padding: 40px; 
+    border-radius: 30px; /* Border radius to round the corners */
+    color: #000;
+    margin: 100px;
+
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 #formButton{
     align-items: center;
 }
 
-#myform{
+
+/* #fill{
     display: flex;
     flex-wrap: wrap;
     background-color: #ECF8FF; 
-    padding: 50px 50px; 
+    padding: 80px 80px; 
     border-radius: 30px; 
     color: #000;
     margin-top: 80px;
@@ -99,24 +124,17 @@ h4{
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
-
-}
-
-.section1, .section2 {
-    box-sizing: border-box;
-    width: 50%;
-    height: 25vh; /* Each row takes 25% of the viewport height */
-    border: 1px solid #ccc;
-    padding: 20px;
-
-}
+    text-align: left
+} */
 
 
 input[type=text]{
-    border: 2px solid #357CFF;
+    border: 2px solid #80ADFF;
+    font-family: 'Baloo Bhai 2';
+    font-size: 18px;
     border-radius: 4px;
-    margin: 5px 0;
+    height: 25px;
+    background-color: #C0E8FF;
 }
 
 

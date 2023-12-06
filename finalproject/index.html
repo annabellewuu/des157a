@@ -37,41 +37,46 @@
     <section id="form" style="display: none;">
 
         <div id="ears">
-            <img src="images/ears.png" width="400" height="350" alt="miffy ears">
+            <img src="images/ears.png" width="300" height="250" alt="miffy ears">
         </div> 
 
         <form id="myform">
             <h4>Help build the story!</h4><br>
-            <div id="section1"></div>
-                <p><label for = "adj1">Please give me an adjective:</label><br>
-                <input type = "text" id = "adj1"></p>
-
-                <p><label for = "name1">Please give me a name:</label><br>
-                <input type = "text" id="name1"></p>
-
-                <p><label for = "color">Please give me a color:</label><br>
-                <input type = "text" id="color"></p>
-
-                <p><label for = "noun1">Please give me a noun:</label><br>
-                <input type = "text" id="noun1"></p>
-             </div>
-             <div id="section2"></div>
-                <p><label for = "object">Please give me an object:</label><br>
-                <input type = "text" id="object"></p>
-
-                <p><label for = "bodypart">Please give me a body part:</label><br>
-                <input type = "text" id="bodypart"></p>
-
-                <p><label for = "adj2">Please give me an adjective:</label><br>
-                <input type = "text" id="adj2"></p>
-
-                <p><label for = "sound">Please give me an object that makes a sound:</label><br>
-                <input type = "text" id="sound"></p>
+            <div id="sections-container">
+                <div class="section" id="section1">
+                    <p><label for="adj1">give me an adjective:</label><br>
+                        <input type="text" id="adj1"></p>
+    
+                    <p><label for="name1">give me a name:</label><br>
+                        <input type="text" id="name1"></p>
+    
+                    <p><label for="color">give me a color:</label><br>
+                        <input type="text" id="color"></p>
+    
+                    <p><label for="noun1">give me a noun:</label><br>
+                        <input type="text" id="noun1"></p>
+                </div>
+    
+                <div class="section" id="section2">
+                    <p><label for="object">give me an object:</label><br>
+                        <input type="text" id="object"></p>
+    
+                    <p><label for="bodypart">give me a body part:</label><br>
+                        <input type="text" id="bodypart"></p>
+    
+                    <p><label for="adj2">give me an adjective:</label><br>
+                        <input type="text" id="adj2"></p>
+    
+                    <p><label for="sound">give me sound:</label><br>
+                        <input type="text" id="sound"></p>
+                </div>
             </div>
+
+            <button id="formButton"><h2 id="formButton">next</h2></button>
 
         </form>
 
-        <button id="formButton"><h2 id="formButton">next</h2></button>
+            <!-- <button id="formButton"><h2 id="formButton">next</h2></button> -->
 
         <div id="overlay">
             <div id="overlayContent">

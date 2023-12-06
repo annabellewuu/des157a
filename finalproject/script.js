@@ -2,32 +2,33 @@
     'use strict';
     console.log('reading js');
 
-    // Example: Add a click event listener to the "startMenuClick" element
+    
     const startMenuClickElement = document.getElementById("startMenuClick");
     startMenuClickElement.addEventListener("click", function () {
-        // Add your logic for handling the click event
         console.log("Clicked on Start Menu!");
         resetForm(); 
         navigateTo("form");
     });
 
-    // Example: Add a click event listener to the "formButton" element
+        // Example: Add a click event listener to the "formButton" element
     const formButton = document.getElementById("formButton");
-    formButton.addEventListener("click", function () {
+    formButton.addEventListener("click", function (event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
         // Add your logic for handling the click event
         console.log("Clicked on Form!");
         generateMadlib();
     });
 
-    // Example: Add a click event listener to the "storyClick" element
+
     const storyClickElement = document.getElementById("storyClick");
     storyClickElement.addEventListener("click", function () {
-        // Add your logic for handling the click event
         console.log("Clicked on Story!");
         navigateTo("startMenu");
     });
 
-    // Example: Add a click event listener to the "exitButton" in the overlay
+    
     const exitButton = document.getElementById("exitButton");
     exitButton.addEventListener("click", function () {
         // Hide the overlay
